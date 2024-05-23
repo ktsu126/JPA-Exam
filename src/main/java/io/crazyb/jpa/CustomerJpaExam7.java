@@ -17,6 +17,8 @@ public class CustomerJpaExam7 {
         try{
             Customer customer = new Customer("ID0005","Jin");//비영속상태
             em.persist(customer); // customer 객체가 영속상태(Managed)
+            em.detach(customer); // customer 객체가 준영속상태(Detached)
+            em.remove(customer); // customer 객체가 삭제상태(Removed)
 
             Customer foundCustomer = em.find(Customer.class, "ID0005");
             System.out.println(foundCustomer);
